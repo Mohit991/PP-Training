@@ -696,3 +696,219 @@ $2 ==> 15
 - Practice for interviews or experiments.
 
 - Debug small snippets interactively.
+
+## Java Operators
+
+Java provides a rich set of operators to manipulate variables and values. Operators are special symbols or keywords that perform operations on one or more operands.
+
+---
+
+### 1. Arithmetic Operators
+
+Used for basic mathematical operations.
+
+| Operator | Description        | Example         | Result                  |
+|----------|--------------------|-----------------|-------------------------|
+| `+`      | Addition           | `5 + 3`         | `8`                     |
+| `-`      | Subtraction        | `5 - 3`         | `2`                     |
+| `*`      | Multiplication     | `5 * 3`         | `15`                    |
+| `/`      | Division           | `10 / 2`        | `5`                     |
+| `%`      | Modulus (remainder)| `10 % 3`        | `1`                     |
+| `++`     | Increment          | `int x = 5; x++;` | `6` (x after increment) |
+| `--`     | Decrement          | `int x = 5; x--;` | `4` (x after decrement) |
+
+---
+
+### 2. Relational Operators
+
+Used to compare two values and return a boolean result.
+
+| Operator | Description           | Example     | Result     |
+|----------|-----------------------|-------------|------------|
+| `==`     | Equal to              | `5 == 3`    | `false`    |
+| `!=`     | Not equal to          | `5 != 3`    | `true`     |
+| `>`      | Greater than          | `5 > 3`     | `true`     |
+| `<`      | Less than             | `5 < 3`     | `false`    |
+| `>=`     | Greater than or equal | `5 >= 5`    | `true`     |
+| `<=`     | Less than or equal    | `5 <= 3`    | `false`    |
+
+---
+
+### 3. Logical Operators
+
+Used with boolean (true/false) values.
+
+| Operator | Description           | Example               | Result     |
+|----------|-----------------------|-----------------------|------------|
+| `&&`     | Logical AND           | `(5 > 3) && (2 < 4)`  | `true`     |
+| `||`     | Logical OR            | `(5 > 3) || (2 > 4)`  | `true`     |
+| `!`      | Logical NOT           | `!(5 > 3)`            | `false`    |
+
+---
+
+### 4. Assignment Operators
+
+Used to assign values to variables.
+
+| Operator | Description           | Example       | Result            |
+|----------|-----------------------|---------------|-------------------|
+| `=`      | Simple assignment     | `x = 5`       | `x` becomes 5     |
+| `+=`     | Add and assign        | `x += 3`      | `x = x + 3`       |
+| `-=`     | Subtract and assign   | `x -= 3`      | `x = x - 3`       |
+| `*=`     | Multiply and assign   | `x *= 3`      | `x = x * 3`       |
+| `/=`     | Divide and assign     | `x /= 3`      | `x = x / 3`       |
+| `%=`     | Modulus and assign    | `x %= 3`      | `x = x % 3`       |
+
+---
+
+### 5. Bitwise Operators
+
+Operate on bits and perform bit-level operations.
+
+| Operator | Description          | Example    | Result        |
+|----------|----------------------|------------|---------------|
+| `&`      | Bitwise AND          | `5 & 3`    | `1`           |
+| `|`      | Bitwise OR           | `5 \| 3`   | `7`           |
+| `^`      | Bitwise XOR          | `5 ^ 3`    | `6`           |
+| `~`      | Bitwise NOT          | `~5`       | `-6`          |
+| `<<`     | Left shift           | `5 << 1`   | `10`          |
+| `>>`     | Right shift          | `5 >> 1`   | `2`           |
+| `>>>`    | Unsigned right shift | `5 >>> 1`  | `2`           |
+
+---
+
+### 6. Ternary Operator (Conditional)
+
+Short-hand for an `if-else` statement.
+
+```java
+// variable = (condition) ? expression1 : expression2;
+int a = 10, b = 20;
+int max = (a > b) ? a : b;  // max will be 20
+```
+
+### 7. instanceof Operator
+Tests whether an object is an instance of a specific class or implements an interface.
+
+```java
+String s = "Hello";
+boolean result = s instanceof String;  // true
+```
+
+| Category      | Operators                           |                                  |         |
+| ------------- | ----------------------------------- | -------------------------------- | ------- |
+| Arithmetic    | `+`, `-`, `*`, `/`, `%`, `++`, `--` |                                  |         |
+| Relational    | `==`, `!=`, `>`, `<`, `>=`, `<=`    |                                  |         |
+| Logical       | `&&`, \`                            |                                  | `, `!\` |
+| Assignment    | `=`, `+=`, `-=`, `*=`, `/=`, `%=`   |                                  |         |
+| Bitwise       | `&`, \`                             | `, `^`, `\~`, `<<`, `>>`, `>>>\` |         |
+| Ternary       | `? :`                               |                                  |         |
+| Type Checking | `instanceof`                        |                                  |         |
+
+
+
+## Java Data Types
+
+In Java, data types specify the different sizes and values that can be stored in variables. Java is a **strongly typed language**, meaning every variable must be declared with a data type.
+
+---
+
+### 🔹 Categories of Data Types
+
+Java has two main types of data types:
+
+1. **Primitive Data Types**
+2. **Non-Primitive (Reference/Object) Data Types**
+
+---
+
+## 1. Primitive Data Types
+
+These are the most basic data types built into the Java language. There are **8 primitive types**, categorized as:
+
+| Type     | Size      | Default Value | Description                            |
+|----------|-----------|----------------|----------------------------------------|
+| `byte`   | 1 byte    | 0              | Stores whole numbers from -128 to 127  |
+| `short`  | 2 bytes   | 0              | Stores whole numbers from -32,768 to 32,767 |
+| `int`    | 4 bytes   | 0              | Stores whole numbers from -2^31 to 2^31-1 |
+| `long`   | 8 bytes   | 0L             | Stores large whole numbers from -2^63 to 2^63-1 |
+| `float`  | 4 bytes   | 0.0f           | Stores decimal numbers, single precision |
+| `double` | 8 bytes   | 0.0d           | Stores decimal numbers, double precision |
+| `char`   | 2 bytes   | '\u0000'       | Stores a single character/letter or ASCII value |
+| `boolean`| 1 bit     | false          | Stores only true or false              |
+
+### 🧪 Examples:
+
+```java
+byte age = 25;
+int salary = 50000;
+float pi = 3.14f;
+double largeValue = 123456.789;
+char grade = 'A';
+boolean isPassed = true;
+```
+
+### 2. Non-Primitive (Reference) Data Types
+These refer to objects and are created by the programmer. They include:
+
+Non-primitive types:
+- Can be **null**
+- Are **created by the programmer**
+- **Store references** to memory locations (not the actual value)
+- **Can have methods and properties**
+
+
+
+- Strings
+- Arrays
+- Classes
+- Interfaces
+- Enums
+
+
+### 🧪 Example Code for All Types
+
+```java
+// 1. String example
+String message = "Hello, Java!";
+System.out.println(message.toUpperCase()); // HELLO, JAVA!
+
+// 2. Array example
+int[] numbers = {10, 20, 30, 40};
+System.out.println(numbers[2]); // Output: 30
+
+// 3. Class example
+class Student {
+    String name;
+    int age;
+}
+
+Student s1 = new Student();
+s1.name = "Alice";
+s1.age = 20;
+System.out.println("Student Name: " + s1.name + ", Age: " + s1.age);
+
+// 4. Interface example
+interface Animal {
+    void makeSound();
+}
+
+class Dog implements Animal {
+    public void makeSound() {
+        System.out.println("Bark");
+    }
+}
+
+Dog dog = new Dog();
+dog.makeSound(); // Bark
+
+// 5. Enum example
+enum Day {
+    MONDAY, TUESDAY, WEDNESDAY
+}
+
+Day today = Day.MONDAY;
+System.out.println(today); // MONDAY
+```
+
+
