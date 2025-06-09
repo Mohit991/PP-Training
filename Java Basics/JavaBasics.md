@@ -912,3 +912,2595 @@ System.out.println(today); // MONDAY
 ```
 
 
+
+## Java Typecasting
+
+### What is Typecasting?
+
+**Typecasting** in Java is the process of converting a variable from one data type to another. Java supports two types of typecasting:
+
+---
+
+### 1. Widening Typecasting (Implicit)
+
+- Also known as **automatic type conversion**.
+- Performed **automatically** when converting a smaller type to a larger type size.
+- No data is lost.
+
+#### Example
+
+```java
+int num = 10;
+double d = num; // int to double
+System.out.println(d); // Output: 10.0
+```
+
+
+```
+byte → short → int → long → float → double
+```
+
+
+### Narrowing Typecasting (Explicit)
+
+- Also known as manual type conversion.
+- Must be done explicitly using a cast operator.
+- There might be data loss or truncation.
+
+
+```java
+dataType variableName = (dataType) value;
+```
+
+
+```java
+double d = 10.5;
+int num = (int) d; // double to int
+System.out.println(num); // Output: 10
+```
+
+
+
+```java
+public class TypeCastingExample {
+    public static void main(String[] args) {
+        // Widening
+        int a = 100;
+        double b = a;
+        System.out.println("Widening: " + b);
+
+        // Narrowing
+        double x = 55.89;
+        int y = (int) x;
+        System.out.println("Narrowing: " + y);
+    }
+}
+```
+
+## Java Conditional Statements
+
+Java provides several types of conditional statements to control the flow of execution based on conditions.
+
+---
+
+### 1. if Statement
+
+Executes a block of code if the condition is true.
+
+```java
+int number = 10;
+if (number > 0) {
+    System.out.println("The number is positive.");
+}
+```
+
+---
+
+### 2. if-else Statement
+
+Executes one block if the condition is true, another if false.
+
+```java
+int number = -5;
+if (number > 0) {
+    System.out.println("Positive number.");
+} else {
+    System.out.println("Non-positive number.");
+}
+```
+
+---
+
+### 3. if-else-if Ladder
+
+Multiple conditions are checked sequentially.
+
+```java
+int number = 0;
+if (number > 0) {
+    System.out.println("Positive");
+} else if (number < 0) {
+    System.out.println("Negative");
+} else {
+    System.out.println("Zero");
+}
+```
+
+---
+
+### 4. Nested if Statement
+
+An `if` inside another `if` block.
+
+```java
+int number = 10;
+if (number >= 0) {
+    if (number == 0) {
+        System.out.println("Zero");
+    } else {
+        System.out.println("Positive");
+    }
+}
+```
+
+---
+
+### 5. switch Statement
+
+Used to select one of many code blocks to be executed.
+
+```java
+int day = 3;
+switch (day) {
+    case 1:
+        System.out.println("Monday");
+        break;
+    case 2:
+        System.out.println("Tuesday");
+        break;
+    case 3:
+        System.out.println("Wednesday");
+        break;
+    default:
+        System.out.println("Invalid day");
+}
+```
+
+---
+
+### Summary Table
+
+| Statement       | Description                                  |
+|----------------|----------------------------------------------|
+| `if`           | Executes block if condition is true          |
+| `if-else`      | Chooses between two blocks                   |
+| `if-else-if`   | Multiple condition checks                    |
+| `nested if`    | `if` within `if` for multiple layers         |
+| `switch`       | Checks value against multiple cases          |
+
+
+## Java Loops
+
+Loops in Java are used to execute a block of code repeatedly as long as a specified condition is true.
+
+---
+
+### 1. for Loop
+
+The `for` loop is used when the number of iterations is known.
+
+```java
+for (int i = 1; i <= 5; i++) {
+    System.out.println("Iteration: " + i);
+}
+```
+
+---
+
+### 2. while Loop
+
+The `while` loop is used when the number of iterations is not known and depends on a condition.
+
+```java
+int i = 1;
+while (i <= 5) {
+    System.out.println("Iteration: " + i);
+    i++;
+}
+```
+
+---
+
+### 3. do-while Loop
+
+The `do-while` loop is similar to the `while` loop, but it guarantees that the loop body is executed at least once.
+
+```java
+int i = 1;
+do {
+    System.out.println("Iteration: " + i);
+    i++;
+} while (i <= 5);
+```
+
+---
+
+### 4. Enhanced for Loop (for-each)
+
+Used to iterate over arrays or collections easily.
+
+```java
+int[] numbers = {1, 2, 3, 4, 5};
+for (int num : numbers) {
+    System.out.println("Number: " + num);
+}
+```
+
+---
+
+### 5. break Statement
+
+Used to exit a loop prematurely when a certain condition is met.
+
+```java
+for (int i = 1; i <= 10; i++) {
+    if (i == 6) {
+        break;
+    }
+    System.out.println("i = " + i);
+}
+```
+
+**Output:**
+```
+i = 1
+i = 2
+i = 3
+i = 4
+i = 5
+```
+
+---
+
+### 6. continue Statement
+
+Skips the current iteration and moves to the next one.
+
+```java
+for (int i = 1; i <= 5; i++) {
+    if (i == 3) {
+        continue;
+    }
+    System.out.println("i = " + i);
+}
+```
+
+**Output:**
+```
+i = 1
+i = 2
+i = 4
+i = 5
+```
+
+---
+
+### Summary Table
+
+| Loop Type         | Description                                      | Use Case                              |
+|-------------------|--------------------------------------------------|----------------------------------------|
+| `for`             | Repeats with a counter                           | Known number of iterations             |
+| `while`           | Repeats while condition is true                  | Unknown number of iterations           |
+| `do-while`        | Like `while`, but runs at least once             | Must execute at least one iteration    |
+| `for-each`        | Iterates over collections/arrays                 | Array or collection traversal          |
+| `break`           | Exits loop early when condition is met           | Early termination                      |
+| `continue`        | Skips to next iteration                          | Skip specific cases during looping     |
+
+
+## Java Arrays
+
+An array in Java is a container object that holds a fixed number of values of a single type.
+
+---
+
+### 1. Declaring and Creating an Array
+
+```java
+int[] numbers = new int[5]; // creates an array of size 5
+```
+
+---
+
+### 2. Initializing an Array
+
+```java
+int[] numbers = {10, 20, 30, 40, 50};
+```
+
+---
+
+### 3. Accessing Array Elements
+
+```java
+System.out.println(numbers[0]); // Output: 10
+System.out.println(numbers[2]); // Output: 30
+```
+
+---
+
+### 4. Modifying Array Elements
+
+```java
+numbers[1] = 25; // Change 20 to 25
+System.out.println(numbers[1]); // Output: 25
+```
+
+---
+
+### 5. Iterating Over an Array (using for loop)
+
+```java
+for (int i = 0; i < numbers.length; i++) {
+    System.out.println("Element at index " + i + ": " + numbers[i]);
+}
+```
+
+---
+
+### 6. Iterating Over an Array (using for-each loop)
+
+```java
+for (int num : numbers) {
+    System.out.println("Element: " + num);
+}
+```
+
+---
+
+### 7. Length of an Array
+
+```java
+System.out.println("Array length: " + numbers.length);
+```
+
+---
+
+### 8. Multidimensional Arrays
+
+```java
+int[][] matrix = {
+    {1, 2, 3},
+    {4, 5, 6}
+};
+
+System.out.println(matrix[0][1]); // Output: 2
+```
+
+---
+
+### 9. Iterating Over 2D Arrays
+
+```java
+for (int i = 0; i < matrix.length; i++) {
+    for (int j = 0; j < matrix[i].length; j++) {
+        System.out.print(matrix[i][j] + " ");
+    }
+    System.out.println();
+}
+```
+
+---
+
+### Summary Table
+
+| Concept               | Example                                       |
+|------------------------|-----------------------------------------------|
+| Declaration            | `int[] arr;`                                  |
+| Creation               | `new int[5]`                                  |
+| Initialization         | `int[] arr = {1, 2, 3};`                      |
+| Access/Modify          | `arr[0]`, `arr[1] = 10;`                      |
+| Length                 | `arr.length`                                  |
+| Loop (for)             | `for (int i = 0; i < arr.length; i++)`       |
+| Loop (for-each)        | `for (int a : arr)`                           |
+| 2D Array               | `int[][] matrix = new int[2][3];`            |
+
+
+## Java Access Modifiers
+
+Access modifiers in Java specify the accessibility (scope) of classes, methods, constructors, and other members.
+
+Java provides four access modifiers:
+
+---
+
+### 1. `private`
+
+- Accessible **only within the same class**.
+- Not accessible from other classes, even subclasses.
+
+```java
+public class Example {
+    private int data = 10;
+
+    private void showData() {
+        System.out.println("Data: " + data);
+    }
+}
+```
+
+---
+
+### 2. `default` (no modifier)
+
+- Accessible **within the same package**.
+- Not accessible from outside the package.
+
+```java
+class Example {
+    void display() {
+        System.out.println("Default access method");
+    }
+}
+```
+
+---
+
+### 3. `protected`
+
+- Accessible **within the same package** and **by subclasses** in other packages.
+
+```java
+public class Example {
+    protected int value = 42;
+
+    protected void show() {
+        System.out.println("Value: " + value);
+    }
+}
+```
+
+---
+
+### 4. `public`
+
+- Accessible from **anywhere** in the program.
+
+```java
+public class Example {
+    public void greet() {
+        System.out.println("Hello, World!");
+    }
+}
+```
+
+---
+
+### Access Modifier Scope Table
+
+| Modifier    | Class | Package | Subclass | World |
+|-------------|:-----:|:-------:|:--------:|:-----:|
+| `private`   |  ✅   |    ❌    |    ❌     |  ❌   |
+| *(default)* |  ✅   |   ✅     |    ❌     |  ❌   |
+| `protected` |  ✅   |   ✅     |   ✅      |  ❌   |
+| `public`    |  ✅   |   ✅     |   ✅      |  ✅   |
+
+---
+
+### Notes
+
+- Only **one public class** is allowed per `.java` file, and the file name must match the public class name.
+- Use `private` for encapsulation.
+- Use `protected` when designing inheritance across packages.
+- Use `public` for classes or APIs that need to be accessed universally.
+
+## Java Constructors
+
+A **constructor** in Java is a special method used to initialize objects. It is called when an object of a class is created.
+
+---
+
+### Key Characteristics
+
+- Constructor name must match the class name.
+- It **does not have a return type**, not even `void`.
+- It is **automatically called** when an object is created.
+
+---
+
+### 1. Default Constructor
+
+A constructor that takes no arguments. If no constructor is defined, Java provides one by default.
+
+```java
+public class Car {
+    Car() {
+        System.out.println("Car object created.");
+    }
+
+    public static void main(String[] args) {
+        Car c = new Car(); // Calls the default constructor
+    }
+}
+```
+
+---
+
+### 2. Parameterized Constructor
+
+Takes arguments to initialize the object with custom values.
+
+```java
+public class Car {
+    String model;
+
+    Car(String modelName) {
+        model = modelName;
+    }
+
+    public static void main(String[] args) {
+        Car c = new Car("Tesla");
+        System.out.println("Model: " + c.model);
+    }
+}
+```
+
+---
+
+### 3. Constructor Overloading
+
+You can define multiple constructors in the same class with different parameter lists.
+
+```java
+public class Car {
+    String model;
+    int year;
+
+    // Default constructor
+    Car() {
+        model = "Unknown";
+        year = 0;
+    }
+
+    // Parameterized constructor
+    Car(String modelName, int modelYear) {
+        model = modelName;
+        year = modelYear;
+    }
+
+    public void display() {
+        System.out.println(model + " - " + year);
+    }
+
+    public static void main(String[] args) {
+        Car c1 = new Car();
+        Car c2 = new Car("Honda", 2022);
+
+        c1.display(); // Unknown - 0
+        c2.display(); // Honda - 2022
+    }
+}
+```
+
+---
+
+### 4. Copy Constructor (Custom Implementation)
+
+Java doesn't have a built-in copy constructor, but you can define one manually.
+
+```java
+public class Car {
+    String model;
+
+    Car(String modelName) {
+        model = modelName;
+    }
+
+    // Copy constructor
+    Car(Car other) {
+        this.model = other.model;
+    }
+
+    public static void main(String[] args) {
+        Car original = new Car("Ford");
+        Car copy = new Car(original);
+
+        System.out.println("Original: " + original.model);
+        System.out.println("Copy: " + copy.model);
+    }
+}
+```
+
+---
+
+### Summary Table
+
+| Type                   | Description                                      |
+|------------------------|--------------------------------------------------|
+| Default Constructor    | No parameters; auto-provided if none defined     |
+| Parameterized          | Accepts arguments to set initial values          |
+| Overloaded Constructor | Multiple constructors with different parameters  |
+| Copy Constructor       | Copies values from another object (manual)       |
+
+---
+
+### Notes
+
+- Constructors can call other constructors using `this()`.
+- If any constructor is explicitly declared, the default constructor is **not provided automatically**.
+- Constructors **can’t be `static`, `final`, or `abstract`**.
+
+## Java `this` Keyword
+
+The `this` keyword in Java is a reference variable that refers to the **current object** of a class.
+
+---
+
+### 1. Referring to Instance Variables
+
+When a method parameter or local variable has the same name as an instance variable, `this` is used to distinguish them.
+
+```java
+public class Student {
+    String name;
+
+    Student(String name) {
+        this.name = name; // 'this.name' refers to instance variable
+    }
+
+    public void display() {
+        System.out.println("Name: " + this.name);
+    }
+
+    public static void main(String[] args) {
+        Student s = new Student("Alice");
+        s.display(); // Output: Name: Alice
+    }
+}
+```
+
+---
+
+### 2. Calling Another Constructor in the Same Class
+
+Use `this()` to call another constructor from within a constructor. Must be the **first statement**.
+
+```java
+public class Student {
+    String name;
+    int age;
+
+    Student(String name) {
+        this(name, 18); // Calls the other constructor
+    }
+
+    Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void display() {
+        System.out.println(name + " - " + age);
+    }
+
+    public static void main(String[] args) {
+        Student s = new Student("Bob");
+        s.display(); // Output: Bob - 18
+    }
+}
+```
+
+---
+
+### 3. Returning the Current Class Instance
+
+`this` can be returned from a method to enable **method chaining**.
+
+```java
+public class Student {
+    String name;
+
+    Student setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    void display() {
+        System.out.println("Name: " + name);
+    }
+
+    public static void main(String[] args) {
+        new Student().setName("Charlie").display();
+    }
+}
+```
+
+---
+
+### 4. Passing `this` as a Method Argument
+
+You can pass the current object as an argument to another method.
+
+```java
+public class Student {
+    void print(Student s) {
+        System.out.println("Method received object: " + s);
+    }
+
+    void callPrint() {
+        print(this); // passing current object
+    }
+
+    public static void main(String[] args) {
+        Student s = new Student();
+        s.callPrint();
+    }
+}
+```
+
+---
+
+### 5. Using `this` with Inner Classes
+
+To distinguish the outer class reference from inner class context.
+
+```java
+public class Outer {
+    int x = 10;
+
+    class Inner {
+        int x = 20;
+
+        void print() {
+            System.out.println("Inner x: " + x);
+            System.out.println("Outer x: " + Outer.this.x);
+        }
+    }
+
+    public static void main(String[] args) {
+        Outer.Inner obj = new Outer().new Inner();
+        obj.print();
+    }
+}
+```
+
+---
+
+### Summary Table
+
+| Use Case                            | Description                                       |
+|-------------------------------------|---------------------------------------------------|
+| `this.variable`                     | Refers to current object's instance variable      |
+| `this()`                            | Calls another constructor in the same class       |
+| `return this`                       | Returns current object (method chaining)          |
+| `this` as argument                  | Pass current object to methods or constructors    |
+| `Outer.this`                        | Refers to outer class from inner class            |
+
+---
+
+### Notes
+
+- Cannot use `this` in static methods because `this` refers to an object, and static methods do not belong to an object.
+- `this()` must be the **first line** in a constructor if used.
+
+
+## Java Packages
+
+A **package** in Java is a namespace that organizes a set of related classes and interfaces. It helps avoid name conflicts and makes classes easier to locate and use.
+
+---
+
+### Types of Packages
+
+1. **Built-in Packages** – Provided by Java (e.g., `java.util`, `java.io`)
+2. **User-defined Packages** – Created by the programmer
+
+---
+
+### 1. Declaring a Package
+
+The `package` keyword is used at the top of a Java source file.
+
+```java
+package mypackage;
+
+public class MyClass {
+    public void display() {
+        System.out.println("Inside mypackage");
+    }
+}
+```
+
+---
+
+### 2. Using a Class from Another Package
+
+Use the `import` statement to access classes from other packages.
+
+**Example: Using a user-defined package**
+
+```java
+import mypackage.MyClass;
+
+public class Test {
+    public static void main(String[] args) {
+        MyClass obj = new MyClass();
+        obj.display();
+    }
+}
+```
+
+> 💡 Make sure the class files are compiled and in the correct directory structure:
+> ```
+> mypackage/MyClass.java
+> Test.java
+> ```
+
+Compile with:
+```
+javac mypackage/MyClass.java
+javac -cp . Test.java
+```
+
+Run with:
+```
+java Test
+```
+
+---
+
+### 3. Accessing Built-in Packages
+
+```java
+import java.util.Scanner;
+
+public class InputExample {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter your name: ");
+        String name = sc.nextLine();
+        System.out.println("Hello, " + name);
+    }
+}
+```
+
+---
+
+### 4. Static Import
+
+You can import static members of a class to use them without class reference.
+
+```java
+import static java.lang.Math.*;
+
+public class StaticImportExample {
+    public static void main(String[] args) {
+        System.out.println(sqrt(16)); // no need to use Math.sqrt()
+        System.out.println(PI);       // directly access PI
+    }
+}
+```
+
+---
+
+### Advantages of Packages
+
+- **Modularity** – Helps organize code better.
+- **Reusability** – Classes in packages can be reused across projects.
+- **Encapsulation** – Provides access protection.
+- **Namespace Management** – Avoids class name conflicts.
+
+---
+
+### Summary Table
+
+| Feature             | Example                           |
+|---------------------|------------------------------------|
+| Declare a package   | `package mypackage;`               |
+| Import a class      | `import mypackage.MyClass;`        |
+| Import all classes  | `import mypackage.*;`              |
+| Static import        | `import static java.lang.Math.*;` |
+| Built-in package    | `import java.util.*;`              |
+
+---
+
+### Notes
+
+- The package name must match the directory structure.
+- The `package` statement **must be the first statement** in the file (except comments).
+- To compile classes in packages, directory paths must reflect the package name.
+
+## Java `static` Modifier
+
+The `static` modifier in Java is used for memory management. It can be applied to variables, methods, blocks, and nested classes. Static members belong to the **class** rather than to any particular instance.
+
+---
+
+### 1. Static Variables (Class Variables)
+
+- Shared among all instances of the class.
+- Only one copy exists regardless of the number of objects created.
+
+```java
+public class Counter {
+    static int count = 0;
+
+    Counter() {
+        count++;
+    }
+
+    public static void main(String[] args) {
+        Counter c1 = new Counter();
+        Counter c2 = new Counter();
+        System.out.println("Count: " + Counter.count); // Output: Count: 2
+    }
+}
+```
+
+---
+
+### 2. Static Methods
+
+- Can be called without creating an instance of the class.
+- Can only directly access other static members.
+- Cannot use `this` or `super` keywords.
+
+```java
+public class MathUtil {
+    public static int square(int num) {
+        return num * num;
+    }
+
+    public static void main(String[] args) {
+        int result = MathUtil.square(5);
+        System.out.println("Square of 5 is " + result);
+    }
+}
+```
+
+---
+
+### 3. Static Blocks
+
+- Used for static initialization.
+- Executed once when the class is loaded.
+
+```java
+public class InitExample {
+    static int data;
+
+    static {
+        data = 50;
+        System.out.println("Static block executed.");
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Data: " + data);
+    }
+}
+```
+
+---
+
+### 4. Static Nested Classes
+
+- Nested classes declared static do not require an instance of the outer class.
+- Can access static members of the outer class.
+
+```java
+public class Outer {
+    static int outerData = 100;
+
+    static class Inner {
+        void display() {
+            System.out.println("Outer data is " + outerData);
+        }
+    }
+
+    public static void main(String[] args) {
+        Outer.Inner obj = new Outer.Inner();
+        obj.display();
+    }
+}
+```
+
+---
+
+### Summary Table
+
+| Static Member       | Description                                      | Access                                    |
+|---------------------|-------------------------------------------------|-------------------------------------------|
+| Static Variable     | Shared across all instances                      | Access via class name or object           |
+| Static Method       | Belongs to class; no instance needed             | Can access only static members directly   |
+| Static Block        | Runs once when class loads                        | Used for initialization                    |
+| Static Nested Class | Nested class that doesn’t need outer instance    | Can access outer class’s static members    |
+
+---
+
+### Notes
+
+- Static members are loaded into memory once at class load time.
+- Non-static members require object instances.
+- Avoid using static variables for data that should be unique to each object.
+
+## Java `super` Keyword
+
+The `super` keyword in Java is a reference variable used to refer to the **immediate parent class** object. It is commonly used in **inheritance** to access parent class methods, constructors, or variables.
+
+---
+
+### Use Cases of `super`
+
+1. **Access parent class variables**
+2. **Call parent class methods**
+3. **Invoke parent class constructor**
+
+---
+
+### 1. Accessing Parent Class Variables
+
+If a subclass has a variable with the same name as the parent, use `super` to refer to the parent class variable.
+
+```java
+class Animal {
+    String name = "Animal";
+}
+
+class Dog extends Animal {
+    String name = "Dog";
+
+    void printNames() {
+        System.out.println("Child name: " + name);
+        System.out.println("Parent name: " + super.name);
+    }
+
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.printNames();
+    }
+}
+```
+
+**Output:**
+```
+Child name: Dog
+Parent name: Animal
+```
+
+---
+
+### 2. Calling Parent Class Methods
+
+Use `super.methodName()` to call a method from the parent class that is overridden in the child class.
+
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Dog barks");
+        super.sound(); // Call parent class method
+    }
+
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.sound();
+    }
+}
+```
+
+**Output:**
+```
+Dog barks
+Animal makes a sound
+```
+
+---
+
+### 3. Calling Parent Class Constructor
+
+Use `super()` to call the constructor of the parent class. It must be the **first statement** in the subclass constructor.
+
+```java
+class Animal {
+    Animal() {
+        System.out.println("Animal constructor called");
+    }
+}
+
+class Dog extends Animal {
+    Dog() {
+        super(); // Call parent constructor
+        System.out.println("Dog constructor called");
+    }
+
+    public static void main(String[] args) {
+        Dog d = new Dog();
+    }
+}
+```
+
+**Output:**
+```
+Animal constructor called
+Dog constructor called
+```
+
+---
+
+### Summary Table
+
+| Usage                     | Purpose                                             |
+|---------------------------|-----------------------------------------------------|
+| `super.variable`          | Access parent class variable                        |
+| `super.method()`          | Call parent class method                            |
+| `super()`                 | Call parent class constructor                       |
+
+---
+
+### Notes
+
+- `super()` must be the **first line** in the subclass constructor.
+- Cannot be used in static contexts.
+- Helps avoid code duplication by reusing parent class functionality.
+
+
+## Java Inheritance
+
+Inheritance is one of the key features of Object-Oriented Programming (OOP) in Java. It allows a new class (subclass) to inherit fields and methods from an existing class (superclass).
+
+---
+
+### Why Use Inheritance?
+
+- **Code Reusability**: Avoid duplicating common code.
+- **Extensibility**: Easily extend existing behavior.
+- **Method Overriding**: Redefine inherited methods.
+- **Polymorphism**: Parent class reference can point to child objects.
+
+---
+
+### Basic Syntax
+
+```java
+class Superclass {
+    // fields and methods
+}
+
+class Subclass extends Superclass {
+    // additional fields and methods
+}
+```
+
+---
+
+### Example: Animal and Dog
+
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Animal();
+        a.sound();
+
+        Dog d = new Dog();
+        d.sound();
+
+        Animal ref = new Dog();
+        ref.sound();
+    }
+}
+```
+
+**Output:**
+```
+Animal makes a sound
+Dog barks
+Dog barks
+```
+
+---
+
+### Types of Inheritance
+
+Java supports the following types of inheritance:
+
+- Single Inheritance
+- Multilevel Inheritance
+- Hierarchical Inheritance
+
+Java does **not** support **multiple inheritance with classes**, but it does via interfaces.
+
+---
+
+#### Single Inheritance
+
+```java
+class Parent {
+    void show() {
+        System.out.println("Parent class");
+    }
+}
+
+class Child extends Parent {
+    void display() {
+        System.out.println("Child class");
+    }
+}
+```
+
+---
+
+#### Multilevel Inheritance
+
+```java
+class Grandparent {
+    void greet() {
+        System.out.println("Grandparent class");
+    }
+}
+
+class Parent extends Grandparent {
+    void show() {
+        System.out.println("Parent class");
+    }
+}
+
+class Child extends Parent {
+    void display() {
+        System.out.println("Child class");
+    }
+}
+```
+
+---
+
+#### Hierarchical Inheritance
+
+```java
+class Animal {
+    void eat() {
+        System.out.println("This animal eats food");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Cat extends Animal {
+    void meow() {
+        System.out.println("Cat meows");
+    }
+}
+```
+
+---
+
+### The `super` Keyword
+
+The `super` keyword refers to the immediate parent class. It is used to:
+
+- Call the parent class method
+- Access the parent class variable
+- Call the parent class constructor
+
+---
+
+#### Call Parent Method
+
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animal sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        super.sound();
+        System.out.println("Dog barks");
+    }
+}
+```
+
+**Output:**
+```
+Animal sound
+Dog barks
+```
+
+---
+
+#### Call Parent Constructor
+
+```java
+class Animal {
+    Animal() {
+        System.out.println("Animal constructor");
+    }
+}
+
+class Dog extends Animal {
+    Dog() {
+        super(); // must be the first statement
+        System.out.println("Dog constructor");
+    }
+}
+```
+
+**Output:**
+```
+Animal constructor
+Dog constructor
+```
+
+---
+
+### Summary Table
+
+| Concept              | Description                                 |
+|----------------------|---------------------------------------------|
+| `extends`            | Inherit from another class                  |
+| `super`              | Reference parent class                      |
+| Method Overriding    | Redefine method from superclass             |
+| Polymorphism         | Parent reference → child object             |
+
+---
+
+### Conclusion
+
+Inheritance is essential in Java for building maintainable and reusable object-oriented code. It enables hierarchical relationships, method overriding, and polymorphism, which together lead to more flexible and scalable applications.
+
+
+## Java Polymorphism
+
+Polymorphism is a core concept of Object-Oriented Programming (OOP) that allows objects of different classes to be treated as objects of a common superclass. It enables a single method or interface to operate on different types of objects.
+
+---
+
+### Types of Polymorphism in Java
+
+1. **Compile-time Polymorphism (Method Overloading)**
+2. **Run-time Polymorphism (Method Overriding)**
+
+---
+
+### 1. Compile-time Polymorphism (Method Overloading)
+
+In method overloading, multiple methods in the same class have the same name but different parameter lists.
+
+```java
+class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    double add(double a, double b) {
+        return a + b;
+    }
+
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        System.out.println(calc.add(2, 3));
+        System.out.println(calc.add(2.5, 3.5));
+        System.out.println(calc.add(1, 2, 3));
+    }
+}
+```
+
+**Output:**
+```
+5
+6.0
+6
+```
+
+---
+
+### 2. Run-time Polymorphism (Method Overriding)
+
+In method overriding, a subclass provides a specific implementation of a method that is already defined in its superclass.
+
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Cat meows");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal a;
+
+        a = new Dog();
+        a.sound();  // Dog barks
+
+        a = new Cat();
+        a.sound();  // Cat meows
+    }
+}
+```
+
+**Output:**
+```
+Dog barks
+Cat meows
+```
+
+---
+
+### Key Benefits of Polymorphism
+
+- **Extensibility**: Easily extend functionality by overriding methods.
+- **Maintainability**: Write cleaner and more manageable code.
+- **Flexibility**: Code can work with objects of different types through a common interface or superclass.
+
+---
+
+### Summary Table
+
+| Type                   | Description                                  | Example            |
+|------------------------|----------------------------------------------|--------------------|
+| Method Overloading     | Same method name, different parameters       | `add(int, int)` vs `add(double, double)` |
+| Method Overriding      | Subclass changes behavior of superclass method | `Dog.sound()` overrides `Animal.sound()` |
+| Polymorphic Behavior   | Parent reference points to child object      | `Animal a = new Dog();` |
+
+---
+
+### Conclusion
+
+Polymorphism increases the flexibility and scalability of Java programs by allowing the same interface or method to behave differently based on the object at runtime. It works closely with inheritance and interfaces to support powerful object-oriented design.
+
+## Java `final` Keyword
+
+The `final` keyword in Java is used to restrict modification. It can be applied to **variables**, **methods**, and **classes**.
+
+---
+
+### Uses of `final` Keyword
+
+- **Final Variable**: Value cannot be changed (constant).
+- **Final Method**: Cannot be overridden by subclasses.
+- **Final Class**: Cannot be inherited.
+
+---
+
+### 1. Final Variable
+
+Once assigned, a final variable cannot be reassigned.
+
+```java
+class Example {
+    final int MAX_VALUE = 100;
+
+    void show() {
+        // MAX_VALUE = 200; // Error: cannot assign a value to final variable
+        System.out.println("Max value: " + MAX_VALUE);
+    }
+}
+```
+
+**Output:**
+```
+Max value: 100
+```
+
+---
+
+### 2. Final Method
+
+A method declared as final cannot be overridden in a subclass.
+
+```java
+class Parent {
+    final void display() {
+        System.out.println("This is a final method.");
+    }
+}
+
+class Child extends Parent {
+    // void display() {   // Error: Cannot override final method
+    //     System.out.println("Attempting to override.");
+    // }
+}
+```
+
+---
+
+### 3. Final Class
+
+A final class cannot be extended by any other class.
+
+```java
+final class ConstantClass {
+    void show() {
+        System.out.println("Final class method");
+    }
+}
+
+// class SubClass extends ConstantClass { // Error: cannot inherit from final class
+// }
+```
+
+---
+
+### Final with Reference Variables
+
+Final reference variables cannot be reassigned to another object, but their internal state can still be changed (if mutable).
+
+```java
+class Book {
+    String title = "Java";
+
+    void setTitle(String t) {
+        this.title = t;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        final Book b = new Book();
+        b.setTitle("Advanced Java"); // allowed
+        // b = new Book();           // Error: cannot assign a new object
+        System.out.println(b.title);
+    }
+}
+```
+
+**Output:**
+```
+Advanced Java
+```
+
+---
+
+### Summary Table
+
+| Usage           | Effect                                       |
+|------------------|-----------------------------------------------|
+| `final` variable | Value cannot be changed after initialization  |
+| `final` method   | Cannot be overridden in a subclass            |
+| `final` class    | Cannot be inherited                           |
+
+---
+
+### Conclusion
+
+The `final` keyword is useful for defining constants, securing methods from being overridden, and preventing classes from being extended. It helps enforce immutability and protects critical parts of your code.
+
+
+## Java `abstract` Keyword
+
+The `abstract` keyword in Java is used to define **abstract classes** and **abstract methods**. These are meant to be **incomplete** and must be **extended or implemented** by other classes.
+
+---
+
+### Key Points
+
+- An **abstract class** cannot be instantiated.
+- An **abstract method** has no body and must be implemented in a subclass.
+- An abstract class can have both abstract and concrete (regular) methods.
+- If a class has one or more abstract methods, it must be declared abstract.
+
+---
+
+### 1. Abstract Class and Method
+
+```java
+abstract class Animal {
+    abstract void sound(); // abstract method
+
+    void eat() {
+        System.out.println("This animal eats food");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+```
+
+---
+
+### 2. Usage Example
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        // Animal a = new Animal(); // Error: Cannot instantiate abstract class
+        Animal dog = new Dog();
+        dog.sound(); // Output: Dog barks
+        dog.eat();   // Output: This animal eats food
+    }
+}
+```
+
+**Output:**
+```
+Dog barks
+This animal eats food
+```
+
+---
+
+### 3. Abstract Class with Constructor and Fields
+
+Abstract classes can have constructors, fields, and methods with implementations.
+
+```java
+abstract class Vehicle {
+    String type;
+
+    Vehicle(String type) {
+        this.type = type;
+    }
+
+    abstract void start();
+
+    void displayType() {
+        System.out.println("Vehicle type: " + type);
+    }
+}
+
+class Car extends Vehicle {
+    Car() {
+        super("Car");
+    }
+
+    @Override
+    void start() {
+        System.out.println("Car starts with a key");
+    }
+}
+```
+
+---
+
+### 4. Abstract vs Interface (Comparison)
+
+| Feature              | Abstract Class                  | Interface                          |
+|----------------------|----------------------------------|-------------------------------------|
+| Can have constructors| Yes                             | No                                  |
+| Can have fields      | Yes (with state)                | Yes (implicitly `public static final`) |
+| Multiple inheritance | No                              | Yes                                 |
+| Method body allowed  | Yes                             | Yes (from Java 8 using `default`)   |
+
+---
+
+### Summary
+
+- Use **abstract classes** when you want to share code among several closely related classes.
+- Use **abstract methods** when you want subclasses to provide specific implementations.
+- Abstract classes help define a common base with shared logic and force subclasses to complete the contract.
+
+---
+
+### Conclusion
+
+The `abstract` keyword in Java supports partial abstraction. It allows you to define a base template for other classes while forcing implementation of key behaviors in subclasses. This promotes consistency and reuse in your code structure.
+
+
+## Java `interface`
+
+An `interface` in Java is a reference type that contains only **abstract methods**, **default methods**, **static methods**, and **constants**. It is used to achieve **100% abstraction** and **multiple inheritance**.
+
+---
+
+### Key Characteristics
+
+- All methods in an interface are **public** and **abstract** by default (except `default` and `static` methods).
+- All fields are **public**, **static**, and **final** by default.
+- A class **implements** an interface, not extends it.
+- A class can **implement multiple interfaces**.
+
+---
+
+### 1. Basic Interface Example
+
+```java
+interface Animal {
+    void sound(); // abstract method
+}
+
+class Dog implements Animal {
+    @Override
+    public void sound() {
+        System.out.println("Dog barks");
+    }
+}
+```
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Dog();
+        a.sound();
+    }
+}
+```
+
+**Output:**
+```
+Dog barks
+```
+
+---
+
+### 2. Interface with Constants
+
+```java
+interface Config {
+    int MAX_USERS = 100; // public static final by default
+}
+```
+
+---
+
+### 3. Interface with `default` and `static` Methods (Java 8+)
+
+```java
+interface Vehicle {
+    void start();
+
+    default void stop() {
+        System.out.println("Vehicle stopped");
+    }
+
+    static void clean() {
+        System.out.println("Vehicle cleaned");
+    }
+}
+
+class Car implements Vehicle {
+    @Override
+    public void start() {
+        System.out.println("Car started");
+    }
+}
+```
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Car c = new Car();
+        c.start();
+        c.stop();
+        Vehicle.clean();
+    }
+}
+```
+
+**Output:**
+```
+Car started
+Vehicle stopped
+Vehicle cleaned
+```
+
+---
+
+### 4. Multiple Interfaces
+
+```java
+interface Printable {
+    void print();
+}
+
+interface Scannable {
+    void scan();
+}
+
+class MultiFunctionPrinter implements Printable, Scannable {
+    public void print() {
+        System.out.println("Printing document");
+    }
+
+    public void scan() {
+        System.out.println("Scanning document");
+    }
+}
+```
+
+---
+
+### Interface vs Abstract Class
+
+| Feature              | Interface                              | Abstract Class                        |
+|----------------------|-----------------------------------------|----------------------------------------|
+| Multiple Inheritance | Yes                                     | No                                     |
+| Constructors         | No                                      | Yes                                    |
+| Access Modifiers     | Only `public`                           | Can be any access modifier             |
+| Fields               | `public static final` by default        | Instance variables allowed             |
+| Method Bodies        | `default`/`static` (Java 8+), not regular| Yes (concrete and abstract methods)    |
+
+---
+
+### Summary
+
+- Use **interfaces** to define capabilities or contracts (e.g., `Flyable`, `Runnable`).
+- A class can **implement multiple interfaces** to inherit multiple behaviors.
+- Interfaces promote **loose coupling** and **testability**.
+
+---
+
+### Conclusion
+
+Interfaces in Java enable abstraction and multiple inheritance. They are a powerful way to define a contract that multiple classes can follow, promoting a clean and maintainable design.
+
+
+## Java Sealed Classes and Interfaces
+
+Sealed classes and interfaces restrict which other classes or interfaces may extend or implement them. This feature enhances **encapsulation** and **maintains control** over the class hierarchy.
+
+---
+
+### Why Use Sealed Classes/Interfaces?
+
+- Control which classes can subclass or implement them.
+- Improve security and maintainability.
+- Useful in modeling restricted class hierarchies.
+
+---
+
+### Syntax Overview
+
+- Use the `sealed` keyword to declare a class or interface as sealed.
+- Use the `permits` clause to specify allowed subclasses or implementors.
+- Subclasses of a sealed class must be declared as:
+  - `final` (cannot be subclassed further),
+  - `sealed` (further restrict subclassing), or
+  - `non-sealed` (open to unrestricted subclassing).
+
+---
+
+### Example: Sealed Class
+
+```java
+public sealed class Vehicle permits Car, Truck {
+    void start() {
+        System.out.println("Vehicle starting");
+    }
+}
+
+public final class Car extends Vehicle {
+    @Override
+    void start() {
+        System.out.println("Car starting");
+    }
+}
+
+public non-sealed class Truck extends Vehicle {
+    @Override
+    void start() {
+        System.out.println("Truck starting");
+    }
+}
+```
+
+---
+
+### Example: Sealed Interface
+
+```java
+public sealed interface Shape permits Circle, Rectangle {
+    double area();
+}
+
+public final class Circle implements Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public double area() {
+        return Math.PI * radius * radius;
+    }
+}
+
+public non-sealed class Rectangle implements Shape {
+    private double width, height;
+
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public double area() {
+        return width * height;
+    }
+}
+```
+
+---
+
+### Notes
+
+- Sealed classes/interfaces were introduced in **Java 15 (preview)** and became a standard feature in **Java 17**.
+- The `permits` clause must explicitly list all permitted subclasses or implementors.
+- Subclasses must explicitly specify their nature: `final`, `sealed`, or `non-sealed`.
+
+---
+
+### Summary Table
+
+| Modifier      | Meaning                                  |
+|---------------|------------------------------------------|
+| `sealed`      | Restricts subclassing to specified types |
+| `permits`     | Lists allowed subclasses or implementors |
+| `final`       | No further subclassing allowed            |
+| `non-sealed`  | Removes restriction, allows unrestricted subclassing |
+
+---
+
+### Conclusion
+
+Sealed classes and interfaces provide fine-grained control over inheritance and implementation, making class hierarchies safer and easier to reason about. Use them when you want to tightly control which classes can extend or implement your types.
+
+
+## Java Enum (Enumerated Data Type)
+
+An `enum` in Java is a special data type used to define a set of named constants. It is useful when you have a fixed set of related values like days, directions, statuses, etc.
+
+---
+
+### Key Characteristics
+
+- Enums are **type-safe**.
+- Enums can have **fields**, **constructors**, and **methods**.
+- Enum constants are implicitly `public`, `static`, and `final`.
+
+---
+
+### 1. Basic Enum Example
+
+```java
+enum Day {
+    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Day today = Day.FRIDAY;
+
+        switch (today) {
+            case MONDAY -> System.out.println("Start of the week");
+            case FRIDAY -> System.out.println("Almost weekend");
+            case SUNDAY -> System.out.println("Rest day");
+            default -> System.out.println("Midweek day");
+        }
+    }
+}
+```
+
+**Output:**
+```
+Almost weekend
+```
+
+---
+
+### 2. Enum with Fields and Constructor
+
+```java
+enum Planet {
+    MERCURY(3.303e+23, 2.4397e6),
+    EARTH(5.976e+24, 6.37814e6),
+    MARS(6.421e+23, 3.3972e6);
+
+    private final double mass;   // in kilograms
+    private final double radius; // in meters
+
+    Planet(double mass, double radius) {
+        this.mass = mass;
+        this.radius = radius;
+    }
+
+    double surfaceGravity() {
+        final double G = 6.67300E-11;
+        return G * mass / (radius * radius);
+    }
+
+    double surfaceWeight(double otherMass) {
+        return otherMass * surfaceGravity();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        for (Planet p : Planet.values()) {
+            System.out.printf("Gravity on %s: %.2f%n", p, p.surfaceGravity());
+        }
+    }
+}
+```
+
+**Output:**
+```
+Gravity on MERCURY: 3.70
+Gravity on EARTH: 9.80
+Gravity on MARS: 3.71
+```
+
+---
+
+### 3. Enum with Custom Methods
+
+```java
+enum Status {
+    NEW, PROCESSING, COMPLETED, FAILED;
+
+    boolean isFinal() {
+        return this == COMPLETED || this == FAILED;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Status s = Status.COMPLETED;
+
+        System.out.println("Is final: " + s.isFinal());
+    }
+}
+```
+
+**Output:**
+```
+Is final: true
+```
+
+---
+
+### Summary Table
+
+| Feature                   | Enum Support |
+|---------------------------|--------------|
+| Constants                 | Yes          |
+| Methods                   | Yes          |
+| Fields                    | Yes          |
+| Constructors              | Yes (private only) |
+| Implements interfaces     | Yes          |
+| Extends classes           | No (implicitly extends `java.lang.Enum`) |
+
+---
+
+### Conclusion
+
+Java Enums are powerful tools for defining a fixed set of constants. They support fields, methods, and even interface implementation, making them ideal for modeling well-defined data sets with behavior.
+
+
+## Java Enum (Enumerated Data Type)
+
+An `enum` in Java is a special data type used to define a set of named constants. It is useful when you have a fixed set of related values like days, directions, statuses, etc.
+
+---
+
+### Key Characteristics
+
+- Enums are **type-safe**.
+- Enums can have **fields**, **constructors**, and **methods**.
+- Enum constants are implicitly `public`, `static`, and `final`.
+
+---
+
+### 1. Basic Enum Example
+
+```java
+enum Day {
+    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Day today = Day.FRIDAY;
+
+        switch (today) {
+            case MONDAY -> System.out.println("Start of the week");
+            case FRIDAY -> System.out.println("Almost weekend");
+            case SUNDAY -> System.out.println("Rest day");
+            default -> System.out.println("Midweek day");
+        }
+    }
+}
+```
+
+**Output:**
+```
+Almost weekend
+```
+
+---
+
+### 2. Enum with Fields and Constructor
+
+```java
+enum Planet {
+    MERCURY(3.303e+23, 2.4397e6),
+    EARTH(5.976e+24, 6.37814e6),
+    MARS(6.421e+23, 3.3972e6);
+
+    private final double mass;   // in kilograms
+    private final double radius; // in meters
+
+    Planet(double mass, double radius) {
+        this.mass = mass;
+        this.radius = radius;
+    }
+
+    double surfaceGravity() {
+        final double G = 6.67300E-11;
+        return G * mass / (radius * radius);
+    }
+
+    double surfaceWeight(double otherMass) {
+        return otherMass * surfaceGravity();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        for (Planet p : Planet.values()) {
+            System.out.printf("Gravity on %s: %.2f%n", p, p.surfaceGravity());
+        }
+    }
+}
+```
+
+**Output:**
+```
+Gravity on MERCURY: 3.70
+Gravity on EARTH: 9.80
+Gravity on MARS: 3.71
+```
+
+---
+
+### 3. Enum with Custom Methods
+
+```java
+enum Status {
+    NEW, PROCESSING, COMPLETED, FAILED;
+
+    boolean isFinal() {
+        return this == COMPLETED || this == FAILED;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Status s = Status.COMPLETED;
+
+        System.out.println("Is final: " + s.isFinal());
+    }
+}
+```
+
+**Output:**
+```
+Is final: true
+```
+
+---
+
+### Summary Table
+
+| Feature                   | Enum Support |
+|---------------------------|--------------|
+| Constants                 | Yes          |
+| Methods                   | Yes          |
+| Fields                    | Yes          |
+| Constructors              | Yes (private only) |
+| Implements interfaces     | Yes          |
+| Extends classes           | No (implicitly extends `java.lang.Enum`) |
+
+---
+
+### Conclusion
+
+Java Enums are powerful tools for defining a fixed set of constants. They support fields, methods, and even interface implementation, making them ideal for modeling well-defined data sets with behavior.
+
+
+## Java `String` Class
+
+In Java, `String` is a **class** used to represent a sequence of characters. It is one of the most commonly used classes in the Java Standard Library and is **immutable**, meaning its value cannot be changed once created.
+
+---
+
+### Key Features of String
+
+- Stored in **string pool** (memory optimization)
+- **Immutable**
+- Has many built-in methods for text manipulation
+- Implements `CharSequence`, `Comparable`, and `Serializable` interfaces
+
+---
+
+### Creating Strings
+
+```java
+String s1 = "Hello";               // Using string literal
+String s2 = new String("World");   // Using constructor
+```
+
+---
+
+### Commonly Used String Methods
+
+#### 1. `length()`
+
+Returns the number of characters in the string.
+
+```java
+String str = "Hello";
+System.out.println(str.length());
+```
+
+**Output:**
+```
+5
+```
+
+---
+
+#### 2. `charAt(int index)`
+
+Returns the character at the specified index.
+
+```java
+String str = "Hello";
+System.out.println(str.charAt(1));
+```
+
+**Output:**
+```
+e
+```
+
+---
+
+#### 3. `substring(int beginIndex, int endIndex)`
+
+Returns a new string that is a substring of this string.
+
+```java
+String str = "Hello World";
+System.out.println(str.substring(0, 5));
+```
+
+**Output:**
+```
+Hello
+```
+
+---
+
+#### 4. `equals(String other)`
+
+Compares two strings for exact equality.
+
+```java
+String a = "Java";
+String b = "Java";
+System.out.println(a.equals(b));
+```
+
+**Output:**
+```
+true
+```
+
+---
+
+#### 5. `equalsIgnoreCase(String other)`
+
+Compares two strings, ignoring case differences.
+
+```java
+String a = "java";
+String b = "JAVA";
+System.out.println(a.equalsIgnoreCase(b));
+```
+
+**Output:**
+```
+true
+```
+
+---
+
+#### 6. `toLowerCase()` and `toUpperCase()`
+
+Converts the string to lower or upper case.
+
+```java
+String str = "HeLLo";
+System.out.println(str.toLowerCase());
+System.out.println(str.toUpperCase());
+```
+
+**Output:**
+```
+hello
+HELLO
+```
+
+---
+
+#### 7. `trim()`
+
+Removes leading and trailing whitespace.
+
+```java
+String str = "  Java  ";
+System.out.println(str.trim());
+```
+
+**Output:**
+```
+Java
+```
+
+---
+
+#### 8. `contains(CharSequence s)`
+
+Checks if the string contains the specified sequence.
+
+```java
+String str = "OpenAI GPT";
+System.out.println(str.contains("GPT"));
+```
+
+**Output:**
+```
+true
+```
+
+---
+
+#### 9. `replace(CharSequence old, CharSequence new)`
+
+Replaces all occurrences of a specified sequence.
+
+```java
+String str = "abc abc";
+System.out.println(str.replace("a", "x"));
+```
+
+**Output:**
+```
+xbc xbc
+```
+
+---
+
+#### 10. `split(String regex)`
+
+Splits the string into an array using the specified regex.
+
+```java
+String str = "apple,banana,orange";
+String[] fruits = str.split(",");
+
+for (String fruit : fruits) {
+    System.out.println(fruit);
+}
+```
+
+**Output:**
+```
+apple
+banana
+orange
+```
+
+---
+
+### String Immutability Example
+
+```java
+String original = "Java";
+String modified = original.concat(" Programming");
+
+System.out.println("Original: " + original);
+System.out.println("Modified: " + modified);
+```
+
+**Output:**
+```
+Original: Java
+Modified: Java Programming
+```
+
+---
+
+### Summary Table of Common Methods
+
+| Method              | Description                                 |
+|---------------------|---------------------------------------------|
+| `length()`          | Returns the length of the string            |
+| `charAt(index)`     | Returns character at specified index        |
+| `substring(start, end)` | Returns substring from start to end       |
+| `equals(str)`       | Compares two strings for equality           |
+| `equalsIgnoreCase()`| Compares strings ignoring case              |
+| `toLowerCase()`     | Converts to lowercase                       |
+| `toUpperCase()`     | Converts to uppercase                       |
+| `trim()`            | Removes whitespace from both ends           |
+| `contains(seq)`     | Checks if string contains a sequence        |
+| `replace(old, new)` | Replaces all occurrences of old with new    |
+| `split(regex)`      | Splits the string using a regex             |
+
+---
+
+### Conclusion
+
+The `String` class in Java is a powerful and essential tool for text manipulation. It provides a wide range of methods for working with characters and sequences efficiently. Because strings are immutable, all operations return new `String` objects instead of modifying the original.
+
+
+
+# StringBuilder Class in Java
+
+The `StringBuilder` class in Java is used to create mutable (modifiable) sequences of characters. Unlike `String`, which is immutable, `StringBuilder` allows modification without creating new objects.
+
+## Package
+```java
+java.lang.StringBuilder
+```
+
+## Constructors
+
+| Constructor | Description |
+|-------------|-------------|
+| `StringBuilder()` | Creates an empty StringBuilder with an initial capacity of 16. |
+| `StringBuilder(int capacity)` | Creates a StringBuilder with the specified capacity. |
+| `StringBuilder(String str)` | Creates a StringBuilder containing the specified string. |
+| `StringBuilder(CharSequence seq)` | Creates a StringBuilder that contains the same characters as the specified `CharSequence`. |
+
+## Commonly Used Methods
+
+| Method | Description |
+|--------|-------------|
+| `append(String str)` | Appends the specified string to this character sequence. |
+| `insert(int offset, String str)` | Inserts the string into this character sequence at the specified position. |
+| `replace(int start, int end, String str)` | Replaces the characters in the specified range with the specified string. |
+| `delete(int start, int end)` | Removes the characters in the specified range. |
+| `deleteCharAt(int index)` | Removes the character at the specified position. |
+| `reverse()` | Reverses the sequence of characters. |
+| `toString()` | Converts the `StringBuilder` to a `String`. |
+| `length()` | Returns the number of characters. |
+| `capacity()` | Returns the current capacity. |
+| `setLength(int newLength)` | Sets the length of the character sequence. |
+
+## Example
+```java
+public class StringBuilderExample {
+    public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder("Hello");
+        sb.append(" World");
+        System.out.println(sb);  // Output: Hello World
+        sb.insert(5, ",");
+        System.out.println(sb);  // Output: Hello, World
+        sb.replace(6, 11, "Java");
+        System.out.println(sb);  // Output: Hello, Java
+        sb.delete(5, 6);
+        System.out.println(sb);  // Output: Hello Java
+        sb.reverse();
+        System.out.println(sb);  // Output: avaJ olleH
+    }
+}
+```
+
+## Differences Between String and StringBuilder
+
+| Feature | `String` | `StringBuilder` |
+|--------|----------|----------------|
+| Mutability | Immutable | Mutable |
+| Thread Safety | Yes | No |
+| Performance | Slower for frequent modifications | Faster |
+
+
+# Wrapper Classes in Java
+
+Wrapper classes provide a way to use primitive data types (int, boolean, etc.) as objects. Each primitive type has a corresponding wrapper class in the `java.lang` package.
+
+## List of Wrapper Classes
+
+| Primitive Type | Wrapper Class   |
+|----------------|-----------------|
+| `byte`         | `Byte`          |
+| `short`        | `Short`         |
+| `int`          | `Integer`       |
+| `long`         | `Long`          |
+| `float`        | `Float`         |
+| `double`       | `Double`        |
+| `char`         | `Character`     |
+| `boolean`      | `Boolean`       |
+
+## Why Use Wrapper Classes?
+
+- Needed when working with collections (e.g., `ArrayList<Integer>`)
+- Allow primitives to be treated as objects
+- Provide useful utility methods (parsing, conversion, etc.)
+
+## Commonly Used Methods
+
+| Wrapper Class | Common Methods                                   |
+|---------------|-------------------------------------------------|
+| `Integer`     | `parseInt(String)`, `valueOf(String)`, `toString()` |
+| `Double`      | `parseDouble(String)`, `valueOf(String)`, `toString()` |
+| `Boolean`     | `parseBoolean(String)`, `valueOf(String)`          |
+| `Character`   | `isDigit(char)`, `isLetter(char)`, `toUpperCase(char)` |
+
+## Example
+```java
+public class WrapperExample {
+    public static void main(String[] args) {
+        // Boxing - converting primitive to wrapper
+        Integer intObj = Integer.valueOf(100);
+        Double doubleObj = Double.valueOf(55.5);
+
+        // Unboxing - converting wrapper to primitive
+        int num = intObj.intValue();
+        double d = doubleObj.doubleValue();
+
+        // Autoboxing - automatic conversion
+        Integer autoBoxed = 50;
+
+        // Auto-unboxing - automatic conversion
+        int autoUnboxed = autoBoxed;
+
+        // Parsing string to primitive
+        int parsedInt = Integer.parseInt("123");
+
+        System.out.println("intObj: " + intObj);
+        System.out.println("num: " + num);
+        System.out.println("autoBoxed: " + autoBoxed);
+        System.out.println("autoUnboxed: " + autoUnboxed);
+        System.out.println("parsedInt: " + parsedInt);
+    }
+}
+```
+
+
+
