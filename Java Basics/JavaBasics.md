@@ -361,3 +361,338 @@ The JVM is platform-specific — there is a different JVM implementation for Win
 
 ![image](https://github.com/user-attachments/assets/aedc2a5b-0dd2-40c4-adfc-90d28c5e4b8f)
 
+
+## OOPS: Object Oriented Programming
+
+---
+
+### 1. Class
+
+A **class** is a blueprint or template that defines the properties (attributes) and behaviors (methods) common to all objects of that type. It represents a concept or a thing.
+
+- Think of a class as a blueprint for creating objects.
+- Classes encapsulate data for the object and methods to manipulate that data.
+
+### Example:
+
+```java
+class Dog {
+    // Attributes (properties)
+    String breed;
+    int age;
+    String color;
+
+    // Behavior (method)
+    void bark() {
+        System.out.println("Woof! Woof!");
+    }
+}
+```
+
+
+### Object
+An object is an instance of a class. When a class is defined, no memory is allocated until an object of that class is created.
+
+- Objects have states and behaviors defined by their class.
+
+- Each object can have different values for its attributes.
+
+
+```java
+Dog myDog = new Dog();  // Creating an object of class Dog
+myDog.breed = "Labrador";
+myDog.age = 5;
+myDog.color = "Black";
+myDog.bark();  // Output: Woof! Woof!
+```
+
+### Encapsulation
+Encapsulation is the mechanism of restricting direct access to some of an object’s components and protecting the internal state of the object. This is done by:
+
+- Declaring variables as private.
+- Providing public getter and setter methods to access and update the value.
+
+Benefits:
+
+- Protects data integrity by controlling how it’s accessed or modified.
+- Improves maintainability and flexibility.
+
+```java
+class Person {
+    private String name;
+    private int age;
+
+    // Getter method for name
+    public String getName() {
+        return name;
+    }
+
+    // Setter method for name
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // Getter method for age
+    public int getAge() {
+        return age;
+    }
+
+    // Setter method for age
+    public void setAge(int age) {
+        if(age > 0) {  // validation
+            this.age = age;
+        }
+    }
+}
+```
+
+### Inheritance
+Inheritance allows a new class (subclass or child class) to acquire the properties and behaviors of an existing class (superclass or parent class).
+
+Benefits:
+
+- Promotes code reuse.
+- Establishes a natural hierarchical relationship.  
+
+```java
+class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking...");
+    }
+}
+
+public class TestInheritance {
+    public static void main(String[] args) {
+        Dog myDog = new Dog();
+        myDog.eat();  // Inherited method
+        myDog.bark(); // Dog's own method
+    }
+}
+```
+
+### Polymorphism
+Polymorphism means "many forms". It allows one interface to be used for a general class of actions.
+
+Types:
+
+- Method Overloading: Same method name, different parameter lists within the same class (compile-time polymorphism).
+
+```java
+class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+}
+```
+
+- Method Overriding: Subclass provides a specific implementation of a method already defined in its superclass (runtime polymorphism).
+
+```java
+class Bird {
+    void sound() {
+        System.out.println("Some sound");
+    }
+}
+
+class Parrot extends Bird {
+    @Override
+    void sound() {
+        System.out.println("Squawk");
+    }
+}
+
+public class TestPolymorphism {
+    public static void main(String[] args) {
+        Bird myBird = new Parrot();
+        myBird.sound();  // Output: Squawk
+    }
+}
+```
+
+### Abstraction
+Abstraction is the concept of hiding complex implementation details and showing only the necessary features to the user.
+
+- Achieved using abstract classes and interfaces.
+
+- Helps to reduce complexity and isolate impact of changes.
+
+```java
+abstract class Vehicle {
+    abstract void move();
+
+    void stop() {
+        System.out.println("Vehicle stopped.");
+    }
+}
+
+class Car extends Vehicle {
+    @Override
+    void move() {
+        System.out.println("Car is moving");
+    }
+}
+
+public class TestAbstraction {
+    public static void main(String[] args) {
+        Vehicle myCar = new Car();
+        myCar.move();  // Output: Car is moving
+        myCar.stop();  // Output: Vehicle stopped.
+    }
+}
+```
+
+### Summary
+- Class: Blueprint for objects.
+
+- Object: Instance of a class.
+
+- Encapsulation: Data hiding using private variables and public methods.
+
+- Inheritance: Creating new classes from existing ones.
+
+- Polymorphism: Many forms of methods (overloading and overriding).
+
+- Abstraction: Hiding complexity using abstract classes/interfaces.
+
+
+## Class Example
+### Student.java
+
+```java
+public class Student {
+    private String studentName;
+    private int studentId;
+    private float qualifyingMarks;
+    private int yearOfEngineering;
+    private char residentialStatus;
+
+    // Setters
+    public void setStudentName(String name) {
+        this.studentName = name;
+    }
+
+    public void setStudentId(int id) {
+        this.studentId = id;
+    }
+
+    public void setQualifyingMarks(float marks) {
+        this.qualifyingMarks = marks;
+    }
+
+    public void setYearOfEngineering(int year) {
+        this.yearOfEngineering = year;
+    }
+
+    public void setResidentialStatus(char status) {
+        this.residentialStatus = status;
+    }
+
+    // Getters
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public float getQualifyingMarks() {
+        return qualifyingMarks;
+    }
+
+    public int getYearOfEngineering() {
+        return yearOfEngineering;
+    }
+
+    public char getResidentialStatus() {
+        return residentialStatus;
+    }
+
+    // Helper method to return residential status as full word
+    public String getFullResidentialStatus() {
+        if (residentialStatus == 'H' || residentialStatus == 'h') {
+            return "Hostellers";
+        } else if (residentialStatus == 'D' || residentialStatus == 'd') {
+            return "Day Scholar";
+        } else {
+            return "Unknown";
+        }
+    }
+}
+```
+
+### StudentTester.java
+
+```java
+public class StudentTester {
+
+    public static void main(String[] args) {  // ✅ String must be capitalized
+        Student student1 = new Student();
+        student1.setStudentName("Jacob");
+        student1.setStudentId(1001);
+        student1.setQualifyingMarks(80.0f);
+        student1.setYearOfEngineering(3);
+        student1.setResidentialStatus('H');
+
+        System.out.println("Student Name       :   " + student1.getStudentName());
+        System.out.println("Student Id         :   " + student1.getStudentId());
+        System.out.println("Qualifying marks   :   " + student1.getQualifyingMarks());
+        System.out.println("Year of Engineering:   " + student1.getYearOfEngineering());
+        System.out.println("Residential status :   " + student1.getFullResidentialStatus());
+    }
+}
+
+```
+
+## JShell - Java Shell Tool
+
+**JShell** is an interactive **REPL (Read-Eval-Print Loop)** tool introduced in **Java 9**. It allows developers to write, evaluate, and test Java code snippets quickly without needing to create full classes or `main()` methods.
+
+---
+
+## 🔹 Key Features
+
+- **Interactive**: Evaluate code line-by-line.
+- **Lightweight**: No need for boilerplate Java code.
+- **Quick Testing**: Great for trying new APIs or logic.
+- **Beginner-Friendly**: Easy for learning Java syntax and behavior.
+- **Prototyping Tool**: Efficient for rapid experimentation.
+
+---
+
+## 🛠️ How to Start JShell
+
+Open terminal/command prompt and type:
+
+```bash
+jshell
+```
+
+```
+jshell> int x = 10;
+x ==> 10
+
+jshell> x + 5
+$2 ==> 15
+```
+
+### Why Use JShell?
+- Explore Java features quickly.
+
+- Learn Java without setting up full projects.
+
+- Test logic or algorithms rapidly.
+
+- Practice for interviews or experiments.
+
+- Debug small snippets interactively.
